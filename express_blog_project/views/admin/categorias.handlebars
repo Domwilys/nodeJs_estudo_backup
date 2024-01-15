@@ -1,0 +1,13 @@
+<h2>Categories List:</h2>
+<hr>
+{{#each categoria}}
+    <div class="card mt-3">
+        <div class="card-body">
+            <h6>Category name: {{name}}</h6>
+            <small>Category slug: {{slug}}</small><br>
+            <small>Created at: {{date}}</small>
+        </div>
+    </div>
+{{/each}}
+<hr>
+<a href="/admin/categorias/add"><button class="btn btn-success">New Category</button></a>
