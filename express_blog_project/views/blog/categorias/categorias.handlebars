@@ -1,0 +1,15 @@
+<hr>
+
+<h2 class="mb-5">Posts categories:</h2>
+
+<ul>
+
+{{#each categoria}}
+    <a href="/categorias/{{slug}}" class="text-black">
+        <li class="lead">{{name}}</li>
+    </a>
+{{else}}
+    <h4>No categories registered</h4>
+{{/each}}
+
+</ul>

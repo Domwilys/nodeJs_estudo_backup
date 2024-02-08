@@ -1,0 +1,9 @@
+POST http://localhost:8787/user/register
+Content-Type: application/json
+
+{
+    "name": "Willyan",
+    "email": "domwillys123@gmail.com",
+    "password": "jvw31818",
+    "confirm_password": "jvw31818"
+}

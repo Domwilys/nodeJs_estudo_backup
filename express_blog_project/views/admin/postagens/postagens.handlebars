@@ -1,0 +1,25 @@
+<h2>Posts List:</h2>
+<hr>
+<a href="/admin/postagens/add"><button class="btn btn-success">New Post</button></a>
+{{#each postagem}}
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5>Post title: {{title}}</h5><br>
+            <h6>Post description: {{description}}</h6><br>
+            <h6>Post category: {{category.name}}</h6><br>
+            <small>Post slug: {{slug}}</small><br><br>
+            <p class="post-content mt-5 text-truncate">Post content: {{content}}</p><br><br>  
+            <small>Posted by: {{postedBy.name}}</small><br>  
+            <small>Created at: {{date}}</small><br>
+            <a href="/admin/postagens/edit/{{_id}}"><button class="btn btn-success mt-5">Edit post</button></a>
+            <a href="/admin/readpostagens/{{_id}}"><button class="btn btn-outline-secondary mt-5">Read post</button></a>
+            <form action="/admin/postagens/deletar" method="post">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-3">Delete post</button>
+            </form>
+        </div>
+    </div>
+{{else}}
+    <h4>No posts registered</h4>
+{{/each}}
+<hr>

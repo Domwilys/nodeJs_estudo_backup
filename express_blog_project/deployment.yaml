@@ -1,0 +1,66 @@
+#Deployment do banco de dados mongodb
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo
+          ports: 
+            - containerPort: 27017
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - port: 27017
+      targetPort: 9292
+---
+
+#Deployment do blog
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: blognodejs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blognodejs
+  template:
+      metadata:
+        labels: 
+          app: blognodejs
+      spec:
+        containers:
+          - name: blognodejs
+            image: willyanpaproski/nodejs-blog:latest
+            env: 
+              - name: MONGODB_URI
+                value: "mongodb://mongodb/blogapp"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blognodejs
+spec:
+  selector:
+    app: blognodejs
+  ports:
+    - port: 80
+      targetPort: 10101
+      nodePort: 30001
+  type: NodePort

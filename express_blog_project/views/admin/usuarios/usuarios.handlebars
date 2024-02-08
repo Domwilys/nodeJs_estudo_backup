@@ -1,0 +1,20 @@
+<h2>Users list:</h2>
+<hr>
+<a href="/admin/users/add"><button class="btn btn-success">Add new user</button></a>
+{{#each usuario}}
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5>Username: {{name}}</h5><br>
+            <h6>User email: {{email}}</h6><br><br>
+            <small>Created at: {{date}}</small><br><br>
+            <a href="/admin/users/edit/{{_id}}"><button class="btn btn-success">Edit user</button></a>
+            <a href="/admin/users/edit/password/{{_id}}"><button class="btn btn-success">New password</button></a>
+            <form action="/admin/users/deletar" method="post">
+                <input type="hidden" name="id" id="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-3">Delete user</button>
+            </form>
+        </div>
+    </div>
+{{else}}
+    <h4>No users registered</h4>
+{{/each}}

@@ -1,0 +1,22 @@
+.navbar-brand {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.lavish {
+    font-family: 'Lavishly Yours', cursive;
+}
+
+.customSubMenuHolder:hover>.customSubMenu {
+    display: block
+}
+
+.customSubMenu {
+    display: none;
+    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background: #00354b;
+}

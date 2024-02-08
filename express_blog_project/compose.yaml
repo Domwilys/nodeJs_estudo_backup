@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    image: node-app:21.6.0
+    container_name: node-blog-app
+    working_dir: /app
+    ports:
+      - "8585:8585"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/blogapp
+    depends_on:
+      - mongo
+    command: ["node", "app.js"]
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-container
+    ports:
+      - "8484:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

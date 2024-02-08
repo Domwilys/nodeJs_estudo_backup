@@ -1,0 +1,24 @@
+{{#if user.admin}}
+    <h2>Welcome {{user.name}} (Administrator)</h2>
+{{else}}
+    <h2>Welcome {{user.name}}!</h2>
+{{/if}}
+
+<div class="card mt-5">
+    <div class="card-body">
+        <form action="/user/edit-profile-data" method="post">
+            <input type="hidden" name="id" id="id" value="{{user._id}}">
+            <div class="mt-3">
+                <label class="mb-2" for="name">Username</label>
+                <input type="text" name="name" id="username" placeholder="Name" value="{{user.name}}"
+                    class="form-control" required>
+            </div>
+            <div class="mt-3">
+                <label class="mb-2" for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="Email" value="{{user.email}}"
+                    class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success mt-5">Edit profile</button>
+        </form>
+    </div>
+</div>

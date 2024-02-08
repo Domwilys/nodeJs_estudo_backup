@@ -1,0 +1,85 @@
+POST http://localhost:8586/api/services
+Content-Type: application/json
+
+{
+    "name": "Servico teste",
+    "description": "Descricao teste",
+    "price": 200,
+    "image": "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg?tx=w_3840,q_auto"
+}
+
+###
+
+GET http://localhost:8586/api/services
+
+###
+
+GET http://localhost:8586/api/services/65ba5300c558a57e26faf391
+
+###
+
+DELETE http://localhost:8586/api/services/65ba92da49b1d6b25ffe463a
+
+###
+
+PUT http://localhost:8586/api/services/65ba5300c558a57e26faf391
+Content-Type: application/json
+
+{
+    "name": "TESTE DE ATUALIZAÇÃO",
+    "description": "TESTE DE ATUALIZAÇÃO",
+    "price": 500,
+    "image": "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg?tx=w_3840,q_auto"
+}
+
+###
+
+POST http://localhost:8586/api/party
+Content-Type: application/json
+
+{
+    "title": "Meu evento2",
+    "author": "Willyan",
+    "description": "Teste de cadastro de festas com serviços",
+    "budget": 12000,
+    "image": "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg?tx=w_3840,q_auto",
+    "services": [
+        {
+            "name": "Servico teste 2",
+            "description": "Descricao teste",
+            "price": 500,
+            "image": "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg?tx=w_3840,q_auto"
+        }, 
+        {
+            "name": "Servico teste 3",
+            "description": "Descricao teste",
+            "price": 1000,
+            "image": "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg?tx=w_3840,q_auto"
+        }
+    ]
+}
+
+###
+
+GET http://localhost:8586/api/party
+
+###
+
+GET http://localhost:8586/api/party/65c0d1c3f5b2c2c3062cedce
+
+###
+
+DELETE http://localhost:8586/api/party/65c0d1c3f5b2c2c3062cedce
+
+###
+
+PUT http://localhost:8586/api/party/65c0d0d0f5b2c2c3062cedca
+Content-Type: application/json
+
+{
+    "title": "Meu evento atualizado",
+    "author": "Willyan",
+    "description": "Teste de atualização de festas",
+    "budget": 20000,
+    "image": "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg?tx=w_3840,q_auto"
+}

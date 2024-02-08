@@ -1,0 +1,28 @@
+{{#each error}}
+    <div class="alert alert-danget">{{text}}</div>
+{{else}}
+{{/each}}
+<h2>Users form</h2>
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/users/new" method="post">
+            <div class="mt-3">
+                <label for="name">Username</label>
+                <input type="text" name="name" id="name" placeholder="Username" class="form-control" required>
+            </div>
+            <div class="mt-3">
+                <label for="email">User email</label>
+                <input type="text" name="email" id="email" placeholder="Email" class="form-control" required>
+            </div>
+            <div class="mt-3">
+                <label for="password">User password</label>
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
+            </div>
+            <div class="mt-3">
+                <label for="confirm_password">Confirm user password</label>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success mt-5">Add user</button>
+        </form>
+    </div>
+</div>
